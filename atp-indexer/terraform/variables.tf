@@ -49,7 +49,7 @@ variable "env_parent" {
 variable "desired_server_count" {
   description = "Desired number of server instances"
   type        = number
-  default     = 3
+  default     = 6
 }
 
 variable "server_autoscaling_min" {
@@ -82,25 +82,25 @@ variable "server_autoscaling_requests_target" {
 variable "indexer_cpu" {
   description = "CPU units for indexer task"
   type        = number
-  default     = 4096
+  default     = 8192
 }
 
 variable "indexer_memory" {
   description = "Memory units for indexer task"
   type        = number
-  default     = 8192 # 8 GB
+  default     = 32768 # 32 GB
 }
 
 variable "server_cpu" {
   description = "CPU units for server task"
   type        = number
-  default     = 4096
+  default     = 8192
 }
 
 variable "server_memory" {
   description = "Memory units for server task"
   type        = number
-  default     = 8192 # 8 GB
+  default     = 32768 # 32 GB
 }
 
 
@@ -237,7 +237,7 @@ variable "db_instance_class" {
 variable "db_read_replica_count" {
   description = "Number of read replicas (0-3). Defaults to 2 for prod HA, reduced in non-prod"
   type        = number
-  default     = 2
+  default     = 3
 
   validation {
     condition     = var.db_read_replica_count >= 0 && var.db_read_replica_count <= 3
